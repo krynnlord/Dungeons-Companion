@@ -1,0 +1,10 @@
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\bin\Release\dungeonsCompanion.exe.config
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\bin\Release\dungeonsCompanion.exe
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\bin\Release\dungeonsCompanion.pdb
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\obj\Release\WindowsFormsApp1.MainWindow.resources
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\obj\Release\WindowsFormsApp1.Form2.resources
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\obj\Release\dungeonsCompanion.Properties.Resources.resources
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\obj\Release\dungeonsCompanion.csproj.GenerateResource.cache
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\obj\Release\dungeonsCompanion.csproj.CoreCompileInputs.cache
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\obj\Release\dungeonsCompanion.exe
+D:\Csharp\dungeonsCompanion\dungeonsCompanion\obj\Release\dungeonsCompanion.pdb
