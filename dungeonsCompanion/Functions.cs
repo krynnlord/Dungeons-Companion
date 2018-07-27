@@ -8,6 +8,9 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using dungeonsCompanion;
+using System.IO;
+
+
 
 namespace dungeonsCompanionFunctions
 {
@@ -24,21 +27,29 @@ namespace dungeonsCompanionFunctions
 
         public static void SavetoTextFile(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
         {
-            //Writes out to save.dat file. Temporary data dump for now
+            //Writes out to save.dat file in same directory as exe file
+            string filename = "save.dat";
+            var fullpath = Path.GetFullPath(filename);
+
             string[] saveDataHeaders = new string[] { "CharacterName,PlayerName,Class,Race,Background,STR,DEX,CONST,INT,WIS,CHAR" };
-            System.IO.File.WriteAllLines(@"D:\Datadump\data.sav", saveDataHeaders);
+            System.IO.File.WriteAllLines(fullpath, saveDataHeaders);
             string[] saveDataText = new string[] { a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + "," + h + "," + i + "," + j + "," + k };
-            System.IO.File.AppendAllLines(@"D:\Datadump\data.sav", saveDataText);
+            System.IO.File.AppendAllLines(fullpath, saveDataText);
         }
 
-        public static void SaveToDatabase(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
+        public static string LoadTextFile(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
         {
+            //Reads the save.dat file in same directory as exe file and populates fields.
+            string filename = "save.dat";
+            var fullpath = Path.GetFullPath(filename);
 
-            SqlConnection con = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("dungeonsDatabase"));
-            con.Open();
-            SqlCommand cmd = new SqlCommand("insert into CharacterStats(CharacterName,PlayerName,Class,Race,Background,STR,DEX,CONST,INT,WIS,CHAR) values (a,b,c,d,e,f,g,h,i,j,k)",con);
-            con.Close();
-             
+            string[] lines = File.ReadAllLines(fullpath).Skip(1).Take(1).First().Split(',');
+
+            foreach (string line in lines)
+            {
+                return line;
+            }
+            
         }
     }
 }

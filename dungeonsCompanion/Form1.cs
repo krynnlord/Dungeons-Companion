@@ -140,7 +140,19 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Functions.SaveToDatabase(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
+            Functions.SavetoTextFile(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
+            SaveDialog savecomplete = new SaveDialog();
+            savecomplete.StartPosition = FormStartPosition.CenterParent;
+            savecomplete.ShowDialog();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Functions.LoadTextFile(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
+             
+            //SaveDialog savecomplete = new SaveDialog();
+            //savecomplete.StartPosition = FormStartPosition.CenterParent;
+            //savecomplete.ShowDialog();
         }
     }
 }

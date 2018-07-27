@@ -44,6 +44,7 @@
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.saveButton = new System.Windows.Forms.Button();
             this.charComboBox = new System.Windows.Forms.ComboBox();
             this.wisComboBox = new System.Windows.Forms.ComboBox();
             this.intComboBox = new System.Windows.Forms.ComboBox();
@@ -74,7 +75,6 @@
             this.charLabel = new System.Windows.Forms.Label();
             this.classBox = new System.Windows.Forms.ComboBox();
             this.classLabel = new System.Windows.Forms.Label();
-            this.saveButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -107,20 +107,21 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "Load";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             this.closeToolStripMenuItem.MouseHover += new System.EventHandler(this.closeToolStripMenuItem_MouseHover);
@@ -226,6 +227,16 @@
             this.tabPage1.Size = new System.Drawing.Size(582, 503);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Character Sheet";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(35, 246);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 41;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // charComboBox
             // 
@@ -887,16 +898,6 @@
             this.classLabel.Size = new System.Drawing.Size(32, 13);
             this.classLabel.TabIndex = 19;
             this.classLabel.Text = "Class";
-            // 
-            // saveButton
-            // 
-            this.saveButton.Location = new System.Drawing.Point(35, 246);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 41;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainWindow
             // 
