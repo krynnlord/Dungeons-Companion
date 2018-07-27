@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Form1
 {
     partial class MainWindow
     {
@@ -107,21 +107,21 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Load";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             this.closeToolStripMenuItem.MouseHover += new System.EventHandler(this.closeToolStripMenuItem_MouseHover);
@@ -940,7 +940,6 @@
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.Label characterName;
-        private System.Windows.Forms.TextBox characterNameBox;
         private System.Windows.Forms.Label strLabel;
         private System.Windows.Forms.Label dexLabel;
         private System.Windows.Forms.Label constLabel;
@@ -957,8 +956,6 @@
         private System.Windows.Forms.TextBox playernameTextbox;
         private System.Windows.Forms.Label backgroundLabel;
         private System.Windows.Forms.ComboBox backgroundBox;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label baseLabel;
         private System.Windows.Forms.Label modLabel;
         private System.Windows.Forms.TextBox charModBox;
@@ -974,6 +971,9 @@
         private System.Windows.Forms.ComboBox dexComboBox;
         private System.Windows.Forms.ComboBox strComboBox;
         private System.Windows.Forms.Button saveButton;
+        public System.Windows.Forms.TextBox characterNameBox;
+        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabControl tabControl1;
     }
 }
 

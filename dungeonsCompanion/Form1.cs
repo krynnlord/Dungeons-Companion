@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using dungeonsCompanionFunctions;
 using dungeonsCompanion;
 
-namespace WindowsFormsApp1
+namespace Form1
 {
     public partial class MainWindow : Form
     {
@@ -141,6 +141,8 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             Functions.SavetoTextFile(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
+            
+            //Display Dialog that Save Completed Successfuly
             SaveDialog savecomplete = new SaveDialog();
             savecomplete.StartPosition = FormStartPosition.CenterParent;
             savecomplete.ShowDialog();
@@ -148,11 +150,26 @@ namespace WindowsFormsApp1
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Functions.LoadTextFile(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
-             
-            //SaveDialog savecomplete = new SaveDialog();
-            //savecomplete.StartPosition = FormStartPosition.CenterParent;
-            //savecomplete.ShowDialog();
+            string[] loadlines = { "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx"};
+            
+           loadlines = Functions.LoadTextFile(loadlines); 
+
+            characterNameBox.Text = loadlines[0];
+            playernameTextbox.Text = loadlines[1];
+            classBox.Text = loadlines[2];
+            raceBox.Text = loadlines[3];
+            backgroundBox.Text = loadlines[4];
+            strComboBox.Text = loadlines[5];
+            dexComboBox.Text = loadlines[6];
+            constComboBox.Text = loadlines[7];
+            intComboBox.Text = loadlines[8];
+            wisComboBox.Text = loadlines[9];
+            charComboBox.Text = loadlines[10];
+
+            //Display Dialog that Load Completed Successfuly
+            LoadDialog loadcomplete = new LoadDialog();
+            loadcomplete.StartPosition = FormStartPosition.CenterParent;
+            loadcomplete.ShowDialog();
         }
     }
 }

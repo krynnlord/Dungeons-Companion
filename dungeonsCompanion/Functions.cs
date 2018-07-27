@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApp1;
+using Form1;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -37,18 +37,15 @@ namespace dungeonsCompanionFunctions
             System.IO.File.AppendAllLines(fullpath, saveDataText);
         }
 
-        public static string LoadTextFile(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
+        public static string[] LoadTextFile(string[] loadlines)
         {
             //Reads the save.dat file in same directory as exe file and populates fields.
             string filename = "save.dat";
             var fullpath = Path.GetFullPath(filename);
-
             string[] lines = File.ReadAllLines(fullpath).Skip(1).Take(1).First().Split(',');
 
-            foreach (string line in lines)
-            {
-                return line;
-            }
+            return lines;
+                        
             
         }
     }

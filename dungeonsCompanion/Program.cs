@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dungeonsCompanionFunctions;
 
-namespace WindowsFormsApp1
+namespace Form1
 {
     static class Program
     {

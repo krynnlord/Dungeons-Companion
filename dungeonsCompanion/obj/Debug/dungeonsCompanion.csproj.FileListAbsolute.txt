@@ -46,3 +46,16 @@ C:\Users\krynn\Documents\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug
 C:\Users\krynn\Documents\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.exe.config
 C:\Users\krynn\Documents\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.exe
 C:\Users\krynn\Documents\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.pdb
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.csprojAssemblyReference.cache
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\Form1.MainWindow.resources
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\Form1.Form2.resources
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.Properties.Resources.resources
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.SaveDialog.resources
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.csproj.GenerateResource.cache
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.csproj.CoreCompileInputs.cache
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.exe
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.pdb
+D:\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.exe.config
+D:\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.exe
+D:\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.pdb
+D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.LoadDialog.resources
