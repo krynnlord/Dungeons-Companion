@@ -59,3 +59,5 @@ D:\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.exe
 D:\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.exe
 D:\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\dungeonsCompanion.pdb
 D:\Projects\Dungeons-Companion\dungeonsCompanion\obj\Debug\dungeonsCompanion.LoadDialog.resources
+D:\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\CharacterDB.mdf
+D:\Projects\Dungeons-Companion\dungeonsCompanion\bin\Debug\CharacterDB_log.ldf

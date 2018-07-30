@@ -44,5 +44,16 @@ namespace dungeonsCompanion.Properties {
                 return ((string)(this["dungeonsDatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\CharacterDB.m" +
+            "df;Integrated Security=True")]
+        public string CharacterDBConnectionString {
+            get {
+                return ((string)(this["CharacterDBConnectionString"]));
+            }
+        }
     }
 }

@@ -61,6 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CharacterDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CharacterInfo.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Form1.cs">
@@ -112,6 +117,17 @@
     <EmbeddedResource Include="SaveDialog.resx">
       <DependentUpon>SaveDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CharacterDBDataSet.xsc">
+      <DependentUpon>CharacterDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CharacterDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CharacterDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CharacterDBDataSet.xss">
+      <DependentUpon>CharacterDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -126,6 +142,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CharacterDB.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CharacterDB_log.ldf">
+      <DependentUpon>CharacterDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="resources\programIcon.ico" />
     <Content Include="resources\wallpaper.png" />
   </ItemGroup>
