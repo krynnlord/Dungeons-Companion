@@ -133,23 +133,11 @@ namespace Form1
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Functions.SavetoTextFile(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text,charComboBox.Text);
-            SaveDialog savecomplete = new SaveDialog();
-            savecomplete.StartPosition = FormStartPosition.CenterParent;
-            savecomplete.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Functions.SavetoTextFile(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
-
-            //TestSQL
             Functions.SavetoDB(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
-
-
-            //Display Dialog that Save Completed Successfuly
-            SaveDialog savecomplete = new SaveDialog();
-            savecomplete.StartPosition = FormStartPosition.CenterParent;
-            savecomplete.ShowDialog();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -158,6 +146,11 @@ namespace Form1
 
 
             loadlines = Functions.LoadTextFile(loadlines); 
+
+            if (loadlines == null)
+                {
+                return;
+                }
 
             characterNameBox.Text = loadlines[0];
             playernameTextbox.Text = loadlines[1];
@@ -172,9 +165,8 @@ namespace Form1
             charComboBox.Text = loadlines[10];
 
             //Display Dialog that Load Completed Successfuly
-            LoadDialog loadcomplete = new LoadDialog();
-            loadcomplete.StartPosition = FormStartPosition.CenterParent;
-            loadcomplete.ShowDialog();
+            MessageBox.Show("Load Complete");
         }
+
     }
 }

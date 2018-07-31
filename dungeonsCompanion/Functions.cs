@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using dungeonsCompanion;
 using System.IO;
-
+using System.Configuration;
 
 
 namespace dungeonsCompanionFunctions
@@ -28,13 +28,16 @@ namespace dungeonsCompanionFunctions
         public static void SavetoTextFile(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
         {
             //Writes out to save.dat file in same directory as exe file
-            string filename = "save.dat";
+            string filename = "save.csv";
             var fullpath = Path.GetFullPath(filename);
 
             string[] saveDataHeaders = new string[] { "CharacterName,PlayerName,Class,Race,Background,STR,DEX,CONST,INT,WIS,CHAR" };
             System.IO.File.WriteAllLines(fullpath, saveDataHeaders);
             string[] saveDataText = new string[] { a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + "," + h + "," + i + "," + j + "," + k };
             System.IO.File.AppendAllLines(fullpath, saveDataText);
+
+            MessageBox.Show("Export Complete");
+
         }
 
         public static void SavetoDB(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
@@ -44,64 +47,64 @@ namespace dungeonsCompanionFunctions
             //Writes to the Datase file
 
             SqlConnection connection;
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CharacterDB"].ConnectionString;
-            int charnum = 1;
-            string query = "UPDATE Characters SET CharacterName = @a,PlayerName = @b,Class = @c,Race = @d,Background = @e,STR = @f,DEX = @g,CONST = @h,INT = @i,WIS = @j,CHAR = @k WHERE Id = @Id";
+            
+            string connectionString = ConfigurationManager.ConnectionStrings["dungeonsDatabase"].ConnectionString;
 
+            //Character Number. Static for now. Support for 5 characters in Future
+            string charnum = "1";
 
-            using (connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
+            string query = "UPDATE Character SET CharacterName=@a,PlayerName=@b,Class=@c,Race=@d,Background=@e,STR=@f,DEX=@g,CONST=@h,INT=@i,WIS=@j,CHAR=@k WHERE Id=@Id";
 
-                //command.Parameters.AddWithValue("@Id", charnum);
-                //command.Parameters.AddWithValue("@a", a);
-                //command.Parameters.AddWithValue("@b", b);
-                //command.Parameters.AddWithValue("@c", c);
-                //command.Parameters.AddWithValue("@d", d);
-                //command.Parameters.AddWithValue("@e", e);
-                //command.Parameters.AddWithValue("@f", f);
-                //command.Parameters.AddWithValue("@g", g);
-                //command.Parameters.AddWithValue("@h", h);
-                //command.Parameters.AddWithValue("@i", i);
-                //command.Parameters.AddWithValue("@j", j);
-                //command.Parameters.AddWithValue("@k", k);
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
 
-                command.Parameters.Add("@Id", SqlDbType.Int).Value = charnum;
-                command.Parameters.Add("@a", SqlDbType.NVarChar).Value = a;
-                command.Parameters.Add("@b", SqlDbType.NVarChar).Value = b;
-                command.Parameters.Add("@c", SqlDbType.NVarChar).Value = c;
-                command.Parameters.Add("@d", SqlDbType.NVarChar).Value = d;
-                command.Parameters.Add("@e", SqlDbType.NVarChar).Value = e;
-                command.Parameters.Add("@f", SqlDbType.NVarChar).Value = f;
-                command.Parameters.Add("@g", SqlDbType.NVarChar).Value = g;
-                command.Parameters.Add("@h", SqlDbType.NVarChar).Value = h;
-                command.Parameters.Add("@i", SqlDbType.NVarChar).Value = i;
-                command.Parameters.Add("@j", SqlDbType.NVarChar).Value = j;
-                command.Parameters.Add("@k", SqlDbType.NVarChar).Value = k;
+                                                      
+                    command.Parameters.AddWithValue("@a", a);
+                    command.Parameters.AddWithValue("@b", b);
+                    command.Parameters.AddWithValue("@c", c);
+                    command.Parameters.AddWithValue("@d", d);
+                    command.Parameters.AddWithValue("@e", e);
+                    command.Parameters.AddWithValue("@f", f);
+                    command.Parameters.AddWithValue("@g", g);
+                    command.Parameters.AddWithValue("@h", h);
+                    command.Parameters.AddWithValue("@i", i);
+                    command.Parameters.AddWithValue("@j", j);
+                    command.Parameters.AddWithValue("@k", k);
+                    command.Parameters.AddWithValue("@Id", charnum);
 
-                connection.Open();
-                command.ExecuteNonQuery();
-
-            }
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                           
+                    MessageBox.Show("Save Complete");
+                    connection.Close();
+                }
+            
 
         }
-
-
-
-
-
-
-
+        
         public static string[] LoadTextFile(string[] loadlines)
         {
             
             //Reads the save.dat file in same directory as exe file and populates fields.
-            string filename = "save.dat";
+            string filename = "save.csv";
             var fullpath = Path.GetFullPath(filename);
 
-            string[] lines = File.ReadAllLines(fullpath).Skip(1).Take(1).First().Split(',');
-            return lines;
+            try
+            {
+                string[] lines = File.ReadAllLines(fullpath).Skip(1).Take(1).First().Split(',');
+                return lines;
+            }
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
               
         }
+
+       
+
     }
 }

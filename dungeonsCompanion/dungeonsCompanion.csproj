@@ -61,12 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CharacterDBDataSet.Designer.cs">
+    <Compile Include="CharacterInfo.cs" />
+    <Compile Include="DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CharacterDBDataSet.xsd</DependentUpon>
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CharacterInfo.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -83,18 +83,6 @@
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LoadDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoadDialog.Designer.cs">
-      <DependentUpon>LoadDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SaveDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SaveDialog.Designer.cs">
-      <DependentUpon>SaveDialog.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,22 +99,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="LoadDialog.resx">
-      <DependentUpon>LoadDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SaveDialog.resx">
-      <DependentUpon>SaveDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="CharacterDBDataSet.xsc">
-      <DependentUpon>CharacterDBDataSet.xsd</DependentUpon>
+    <None Include="DatabaseDataSet.xsc">
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </None>
-    <None Include="CharacterDBDataSet.xsd">
+    <None Include="DatabaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CharacterDBDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DatabaseDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="CharacterDBDataSet.xss">
-      <DependentUpon>CharacterDBDataSet.xsd</DependentUpon>
+    <None Include="DatabaseDataSet.xss">
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -139,15 +121,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CharacterDB.mdf">
+    <Content Include="Database.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CharacterDB_log.ldf">
-      <DependentUpon>CharacterDB.mdf</DependentUpon>
+    <Content Include="Database_log.ldf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="resources\programIcon.ico" />
     <Content Include="resources\wallpaper.png" />
