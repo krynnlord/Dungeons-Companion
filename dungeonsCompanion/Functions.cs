@@ -43,7 +43,6 @@ namespace dungeonsCompanionFunctions
         public static void SavetoDB(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
         {
 
-
             //Writes to the Datase file
 
             SqlConnection connection;
@@ -55,11 +54,10 @@ namespace dungeonsCompanionFunctions
 
             string query = "UPDATE Character SET CharacterName=@a,PlayerName=@b,Class=@c,Race=@d,Background=@e,STR=@f,DEX=@g,CONST=@h,INT=@i,WIS=@j,CHAR=@k WHERE Id=@Id";
 
-                using (connection = new SqlConnection(connectionString))
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-
-                                                      
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+      
                     command.Parameters.AddWithValue("@a", a);
                     command.Parameters.AddWithValue("@b", b);
                     command.Parameters.AddWithValue("@c", c);
@@ -75,14 +73,49 @@ namespace dungeonsCompanionFunctions
 
                     connection.Open();
                     command.ExecuteNonQuery();
-                           
-                    MessageBox.Show("Save Complete");
                     connection.Close();
-                }
+                    MessageBox.Show("Save Complete");
+                    
+            }
             
+        }
+
+        public static List<string> LoadfromDB(List<string> results)
+        {
+            //Reads from the Datase file
+
+            SqlConnection connection;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["dungeonsDatabase"].ConnectionString;
+                      
+                       
+            string query = "SELECT CharacterName,PlayerName,Class,Race,Background,STR,DEX,CONST,INT,WIS,CHAR FROM Character WHERE Id=1";
+
+            using (connection = new SqlConnection(connectionString))
+               
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                   
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            results.Add(reader.GetString(i));
+                        }
+                    }
+
+                }
+
+                connection.Close();
+                return results;        
+            }
+
 
         }
-        
+
         public static string[] LoadTextFile(string[] loadlines)
         {
             

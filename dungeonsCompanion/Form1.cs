@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dungeonsCompanionFunctions;
 using dungeonsCompanion;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Form1
 {
@@ -137,7 +139,9 @@ namespace Form1
 
         private void button1_Click(object sender, EventArgs e)
         {
+        
             Functions.SavetoDB(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
+
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,9 +168,30 @@ namespace Form1
             wisComboBox.Text = loadlines[9];
             charComboBox.Text = loadlines[10];
 
-            //Display Dialog that Load Completed Successfuly
-            MessageBox.Show("Load Complete");
+            //Display Dialog that Import Completed Successfuly
+            MessageBox.Show("Import Complete");
         }
 
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            List<string> results = new List<string>();
+
+            results = Functions.LoadfromDB(results);
+            characterNameBox.Text = results[0];
+            playernameTextbox.Text = results[1];
+            classBox.Text = results[2];
+            raceBox.Text = results[3];
+            backgroundBox.Text = results[4];
+            strComboBox.Text = results[5];
+            dexComboBox.Text = results[6];
+            constComboBox.Text = results[7];
+            intComboBox.Text = results[8];
+            wisComboBox.Text = results[9];
+            charComboBox.Text = results[10];
+
+            //Display Dialog that Load Completed Successfuly
+            MessageBox.Show("Load Complete");
+
+        }
     }
 }

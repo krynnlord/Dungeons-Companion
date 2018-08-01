@@ -75,6 +75,7 @@
             this.charLabel = new System.Windows.Forms.Label();
             this.classBox = new System.Windows.Forms.ComboBox();
             this.classLabel = new System.Windows.Forms.Label();
+            this.loadButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -107,21 +108,21 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.openToolStripMenuItem.Text = "Import CSV";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.saveToolStripMenuItem.Text = "Export to CSV";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             this.closeToolStripMenuItem.MouseHover += new System.EventHandler(this.closeToolStripMenuItem_MouseHover);
@@ -190,6 +191,7 @@
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
             this.tabPage1.BackgroundImage = global::dungeonsCompanion.Properties.Resources.wallpaper;
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabPage1.Controls.Add(this.loadButton);
             this.tabPage1.Controls.Add(this.saveButton);
             this.tabPage1.Controls.Add(this.charComboBox);
             this.tabPage1.Controls.Add(this.wisComboBox);
@@ -230,7 +232,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(35, 246);
+            this.saveButton.Location = new System.Drawing.Point(96, 245);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 41;
@@ -899,6 +901,16 @@
             this.classLabel.TabIndex = 19;
             this.classLabel.Text = "Class";
             // 
+            // loadButton
+            // 
+            this.loadButton.Location = new System.Drawing.Point(15, 245);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(75, 23);
+            this.loadButton.TabIndex = 42;
+            this.loadButton.Text = "Load";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -974,6 +986,7 @@
         public System.Windows.Forms.TextBox characterNameBox;
         public System.Windows.Forms.TabPage tabPage1;
         public System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button loadButton;
     }
 }
 
