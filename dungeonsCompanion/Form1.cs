@@ -23,12 +23,12 @@ namespace Form1
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void fileToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace Form1
 
         private void closeToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
-            
+
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace Form1
 
         private void strBox_TextChanged(object sender, EventArgs e)
         {
-        
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace Form1
 
         private void strComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-   
+
 
         }
 
@@ -129,32 +129,37 @@ namespace Form1
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            //Test for BackgroundBox
+            //List<string> results = new List<string>();
+            //results = Functions.LoadBackgroundText(results);
+            //backgroundTextBox.Text = results[0];
+
 
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Functions.SavetoTextFile(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text,charComboBox.Text);
+            Functions.SavetoTextFile(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
+
             Functions.SavetoDB(characterNameBox.Text, playernameTextbox.Text, classBox.Text, raceBox.Text, backgroundBox.Text, strComboBox.Text, dexComboBox.Text, constComboBox.Text, intComboBox.Text, wisComboBox.Text, charComboBox.Text);
 
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string[] loadlines = { "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx" , "xx"};
+            string[] loadlines = { "xx", "xx", "xx", "xx", "xx", "xx", "xx", "xx", "xx", "xx", "xx" };
 
 
-            loadlines = Functions.LoadTextFile(loadlines); 
+            loadlines = Functions.LoadTextFile(loadlines);
 
             if (loadlines == null)
-                {
+            {
                 return;
-                }
+            }
 
             characterNameBox.Text = loadlines[0];
             playernameTextbox.Text = loadlines[1];
@@ -193,5 +198,12 @@ namespace Form1
             MessageBox.Show("Load Complete");
 
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

@@ -27,17 +27,30 @@ namespace dungeonsCompanionFunctions
 
         public static void SavetoTextFile(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
         {
-            //Writes out to save.dat file in same directory as exe file
-            string filename = "save.csv";
-            var fullpath = Path.GetFullPath(filename);
+            //Creates Save Dialog for the Export, and sets the default output to .csv
+            SaveFileDialog savefile = new SaveFileDialog();
+            savefile.FileName = "";
+            savefile.Filter = "CSV files (*.csv)|*.csv";
+            if (savefile.ShowDialog() == DialogResult.OK)
+            {
 
-            string[] saveDataHeaders = new string[] { "CharacterName,PlayerName,Class,Race,Background,STR,DEX,CONST,INT,WIS,CHAR" };
-            System.IO.File.WriteAllLines(fullpath, saveDataHeaders);
-            string[] saveDataText = new string[] { a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + "," + h + "," + i + "," + j + "," + k };
-            System.IO.File.AppendAllLines(fullpath, saveDataText);
+                //Choose Ok on the dialog
+                var fullpath = savefile.FileName;
 
-            MessageBox.Show("Export Complete");
+                string[] saveDataHeaders = new string[] { "CharacterName,PlayerName,Class,Race,Background,STR,DEX,CONST,INT,WIS,CHAR" };
+                System.IO.File.WriteAllLines(fullpath, saveDataHeaders);
+                string[] saveDataText = new string[] { a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + "," + h + "," + i + "," + j + "," + k };
+                System.IO.File.AppendAllLines(fullpath, saveDataText);
 
+                MessageBox.Show("Export Complete");
+            }
+            else
+            {
+                //Close out of dialog or cancel
+                MessageBox.Show("Export Aborted");
+                return;
+            }
+            
         }
 
         public static void SavetoDB(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j, string k)
@@ -137,7 +150,41 @@ namespace dungeonsCompanionFunctions
               
         }
 
-       
+        public static List<string> LoadBackgroundText(List<string> results)
+        {
+            //Loads the Background Text from Database
+
+            SqlConnection connection;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["dungeonsDatabase"].ConnectionString;
+
+
+            string query = "SELECT Overview FROM Backgrounds WHERE Id=1";
+
+            using (connection = new SqlConnection(connectionString))
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            results.Add(reader.GetString(i));
+                        }
+                    }
+
+                }
+
+                connection.Close();
+                return results;
+            }
+
+
+        }
 
     }
 }

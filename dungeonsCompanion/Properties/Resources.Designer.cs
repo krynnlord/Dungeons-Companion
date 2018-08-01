@@ -63,9 +63,19 @@ namespace dungeonsCompanion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap wallpaper {
+        internal static System.Drawing.Bitmap Characters {
             get {
-                object obj = ResourceManager.GetObject("wallpaper", resourceCulture);
+                object obj = ResourceManager.GetObject("Characters", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DClogo {
+            get {
+                object obj = ResourceManager.GetObject("DClogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
